@@ -1,0 +1,671 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+:root {
+  --background: #000000;
+  --main-color: #2E94D2;
+  --second-color: #333333;
+  --third-color: #8BB5F8;
+  --font: 'Nunito', sans-serif;
+  --heading: 2.5rem;
+  --sub-head: 1.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: var(--font);
+  scroll-behavior: smooth;
+}
+
+nav {
+  height: 8vh;
+  background-color: #000000;
+  color: #ffffff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 4;
+}
+
+nav .large-screen {
+  display: flex;
+  height: 8vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem;
+
+}
+
+nav .large-screen a {
+  text-decoration: none;
+  position: relative;
+  color: #ffffff;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+.mobile {
+  top: 0;
+  left: 0;
+  background-color: #0000009c;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  width: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.mobile .lists {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile a {
+  padding: 0.5rem 1rem;
+  text-align: right;
+  text-decoration: none;
+  font-weight: bolder;
+  color: #ffffff;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.mobile a:hover {
+  letter-spacing: 5px;
+  background-color: rgba(128, 128, 128, 0.474);
+}
+
+.mobile .icon {
+  font-size: var(--sub-head);
+  margin: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #000000;
+  transition: all 0.3s;
+}
+
+.mobile .icon:hover {
+  border: 2px solid #ffffff;
+}
+
+.large-screen a::after {
+  content: " ";
+  border-bottom: 2px solid var(--main-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 0%;
+  transition: all 0.5s;
+}
+
+.large-screen a:hover::after {
+  width: 80%;
+}
+
+.nav-list {
+  display: none;
+}
+
+.large-screen i {
+  font-size: var(--sub-head);
+  cursor: pointer;
+  margin: 0.4rem;
+}
+
+header {
+  min-height: 70vh;
+  background-color: var(--background);
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+header img {
+  height: 70vh;
+}
+
+.header-content {
+  margin-bottom: 1rem;
+  width: 80vw;
+  text-align: center;
+}
+
+.header-content h2 {
+  font-size: 3rem;
+  color: var(--main-color);
+  font-weight: bolder;
+}
+
+.header-content h2>span {
+  display: block;
+  color: var(--second-color);
+}
+
+#about {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding: 1rem;
+  min-height: 30vh;
+}
+
+#about h2 {
+  font-size: var(--heading);
+}
+
+#skills {
+  min-height: 40vh;
+  background-color: var(--main-color);
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  color: #ffffff;
+}
+
+#skills h2 {
+  font-size: var(--heading);
+}
+
+.skill-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.skill-card {
+  width: fit-content;
+  transition: all 0.3s;
+}
+
+@property --progress-value {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes react-progress {
+  to {
+    --progress-value: 75;
+  }
+}
+
+@keyframes html-progress {
+  to {
+    --progress-value: 90;
+  }
+}
+
+@keyframes js-progress {
+  to {
+    --progress-value: 80;
+  }
+}
+
+@keyframes css-progress {
+  to {
+    --progress-value: 70;
+  }
+}
+
+@keyframes sass-progress {
+  to {
+    --progress-value: 78;
+  }
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.react {
+  background:
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(var(--main-color) calc(var(--progress-value) * 1%), var(--third-color) 0);
+  animation: react-progress 2s 1 forwards;
+}
+
+.react::after {
+  content: "";
+  background-image: url('./assets/react.svg');
+  height: 75%;
+  width: 75%;
+  transition: all .8s ease-in-out;
+}
+
+.html {
+  background:
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(var(--main-color) calc(var(--progress-value) * 1%), var(--third-color) 0);
+  animation: html-progress 2s 1 forwards;
+}
+
+.html::after {
+  content: "";
+  background-image: url('./assets/html5.svg');
+  height: 75%;
+  width: 75%;
+  transition: all .8s ease-in-out;
+}
+
+.js {
+  background:
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(var(--main-color) calc(var(--progress-value) * 1%), var(--third-color) 0);
+  animation: js-progress 2s 1 forwards;
+}
+
+.js::after {
+  content: "";
+  background-image: url('./assets/javascript.svg');
+  height: 55%;
+  width: 55%;
+  transition: all .8s ease-in-out;
+}
+
+.css {
+  background:
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(var(--main-color) calc(var(--progress-value) * 1%), var(--third-color) 0);
+  animation: css-progress 2s 1 forwards;
+}
+
+.css::after {
+  content: "";
+  background-image: url('./assets/css3.svg');
+  background-repeat: no-repeat;
+
+  height: 75%;
+  width: 75%;
+  transition: all .8s ease-in-out;
+}
+
+.sass {
+  background:
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(var(--main-color) calc(var(--progress-value) * 1%), var(--third-color) 0);
+  animation: sass-progress 2s 1 forwards;
+}
+
+.sass::after {
+  content: "";
+  background-image: url('./assets/sass.svg');
+  background-repeat: no-repeat;
+  height: 75%;
+  width: 75%;
+  transition: all .8s ease-in-out;
+}
+
+.progress-bar:hover::after {
+  transform: rotate(360deg);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#certifications {
+  text-align: center;
+
+}
+
+#certifications>h2 {
+  font-size: var(--heading);
+}
+
+.certificates {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.certificate-container {
+  height: 30vh;
+  width: 80vw;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.certificate-container::after {
+  content: "Certificate";
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  right: 100%;
+  text-align: center;
+  background-color: rgba(125, 125, 125, 0.53);
+  top: 0;
+  left: 0;
+  transition: all 0.6s;
+  font-size: var(--sub-head);
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.certificate-container:hover::after {
+  right: 0;
+  visibility: visible;
+}
+
+.certificate {
+  height: 100%;
+  width: 100%;
+}
+
+#projects {
+  text-align: center;
+  min-height: 60vh;
+  background-color: var(--main-color);
+  color: #ffffff;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+#projects>h2 {
+  font-size: var(--heading);
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 100%;
+  min-height: 60vh;
+  cursor: pointer;
+  gap: 1rem;
+  background-color: #ffffff2e;
+  transition: all 0.4s;
+  border-radius: 5px;
+}
+
+.project-screen {
+  height: 50%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-screen>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tech-stack span {
+  display: block;
+  font-weight: bolder;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.code,
+.live {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: fit-content;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-weight: bolder;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.code a,
+.live a {
+  gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.code a,
+.live a {
+  text-decoration: none;
+  overflow: hidden;
+  color: inherit;
+}
+
+.code {
+  background-color: var(--main-color);
+  outline: 2px solid #ffffff;
+}
+
+.code:hover {
+  background-color: #ffffff;
+  outline: 2px solid var(--main-color);
+  color: var(--main-color);
+}
+
+.live {
+  background-color: #ffffff;
+  color: var(--main-color);
+  outline: 2px solid var(--main-color);
+}
+
+.live:hover {
+  background-color: var(--main-color);
+  outline: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.description{
+  height: 40%;
+  overflow: hidden;
+}
+.tech-stack{
+  height: 25%;
+  overflow: hidden;
+}
+.project-card:hover {
+  transform: scale(1.06);
+}
+
+#contact {
+  text-align: center;
+  /* margin: 1rem; */
+  padding: 1rem;
+  background-color: #000000;
+  color: #fff;
+}
+
+.download {
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem auto;
+}
+
+.download button {
+  padding: 0.5rem;
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: var(--main-color);
+  border: none;
+  color: #ffffff;
+  border-radius: 4px;
+  border: 2px solid #ffffff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.download button:hover {
+  border: 2px solid var(--main-color);
+  background-color: #ffffff;
+  color: var(--main-color);
+  font-weight: bolder;
+}
+
+#contact>h2 {
+  font-size: var(--heading);
+}
+
+#contact form {
+  background-color: rgba(255, 255, 255, 0.552);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 0.4rem;
+  border-radius: 5px;
+}
+
+form textarea {
+  resize: none;
+}
+
+form input,
+textarea,
+.submit {
+  background-color: #dddada9f;
+  border: none;
+  padding: 0.3rem;
+  font-size: 1rem;
+  border-radius: 2px;
+  margin: 0.4rem;
+}
+
+#contact .submit {
+  cursor: pointer;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  background-color: var(--main-color);
+  color: #ffffff;
+}
+
+#contact .submit:hover {
+  background-color: #ffffff;
+  color: #000000;
+  gap: 1.5rem;
+}
+
+footer {
+  max-height: 20vh;
+  background-color: #000000;
+  text-align: center;
+  color: #ffffff;
+}
+
+.social-links i {
+  font-size: var(--sub-head);
+  margin: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+
+.social-links i:hover {
+  transform: scale(1.3);
+  outline: 2px solid white;
+}
+
+/* Media Queries */
+@media screen and (min-width:481px) {
+  .nav-list {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  nav .icon {
+    display: none;
+  }
+
+  .header-content {
+    width: 80vw;
+  }
+
+  #about {
+    width: 60%;
+  }
+
+  .certificate-container {
+    width: 50vw;
+  }
+
+  .project-card {
+    width: 55%;
+  }
+}
+
+@media screen and (min-width:769px) {
+  .header-content {
+    width: 30vw;
+  }
+
+  .header-content h2 {
+    font-size: 2rem;
+  }
+
+  #about {
+    width: 50%;
+  }
+
+  .certificate-container {
+    width: 40vw;
+  }
+
+  .project-card {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width:1025px) {
+  .header-content h2 {
+    font-size: 3rem;
+  }
+
+  .certificate-container {
+    width: 25vw;
+  }
+
+  .project-card {
+    width: 28%;
+  }
+}
